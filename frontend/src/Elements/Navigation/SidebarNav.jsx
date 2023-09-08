@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBoxArchive, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useContext } from 'react';
 import { Context } from '../../lib/Context';
-import Row from 'react-bootstrap/esm/Row';
-import Col from 'react-bootstrap/esm/Col';
+import Stack from 'react-bootstrap/Stack';
 import '../../lib/css/Sidebar.css'
 
 const Sidebar = (props) => {
@@ -22,24 +21,25 @@ const Sidebar = (props) => {
                 {APP_NAME}
             </Offcanvas.Header>
             <Offcanvas.Body>
-                <Row>
-                    <Col xs={1} />
-                    <Col style={{ textAlign: 'center' }}>
+                <Stack gap={1}>
+                    <div>
                         <Button className="sidebar-button" onClick={() => {
                             handleSwitchPage('login-welcome');
                             closeSidebar(false);
                         }} variant="primary">
                             <FontAwesomeIcon icon={faBoxArchive} /> Login Screen
-                        </Button><br />
+                        </Button>
+                    </div>
+                    <div>
                         <Button className="sidebar-button" onClick={() => {
                             setShowAccount(true);
                             setShowSidebar(false);
                         }} variant="primary">
                             <FontAwesomeIcon icon={faUser} /> My Account
-                        </Button><br />
-                    </Col>
-                    <Col xs={1} />
-                </Row>
+                        </Button>
+                    </div>
+                    <div className="p-2">Third item</div>
+                </Stack>
             </Offcanvas.Body>
         </Offcanvas>
     )
