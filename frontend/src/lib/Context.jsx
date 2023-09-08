@@ -8,12 +8,11 @@ const ContextProvider = ({ children }) => {
     const [lastname, setLastname] = useState(null);
     const [email, setEmail] = useState(null)
     const [profilePicture, setProfilePicture] = useState(null);
-    const [viewPage, setViewPage] = useState('login-welcome');
+    const [viewPage, setViewPage] = useState('admin-home');
 
     const APP_NAME = process.env.REACT_APP_APP_NAME;
 
     const getUserProfile = useCallback(() => {
-        console.log('Fetching')
         fetch(API_LINK + '/profile', {
             credentials: 'include',
             method: 'GET'

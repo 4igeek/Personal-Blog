@@ -1,28 +1,30 @@
 import React, { useContext } from 'react'
 import { Context } from '../../lib/Context';
-import LoginWelcome from './LoginWelcome';
-import Container from 'react-bootstrap/Container';
+import AdminHome from './Pages/AdminHome';
+import Settings from './Pages/Settings';
 import Footer from '../Footer';
+import HomePage from './Pages/HomePage';
+import AddPost from './Pages/AddPost';
 
 const PageContainer = () => {
-    const { viewPage, firstname, lastname, email, profilePicture } = useContext(Context);
+    // eslint-disable-next-line
+    const { viewPage, email, firstname, lastname, profilePicture } = useContext(Context);
     return (
         <>
-            <Container style={{ backgroundColor: 'white', paddingTop: '20px', paddingBottom: '20px' }}>
-                {!email && <p>Please login to continue</p>}
-                {email &&
-                    <>
-                        Welcome: {firstname} {lastname}<br />{email}<br />
-                        {profilePicture && <img src={profilePicture} alt={firstname + lastname} />}
-                    </>
-                }
-                {email &&
-                    <div>
-                        {viewPage === 'login-welcome' &&
-                            <LoginWelcome />}
-                    </div>
-                }
-            </Container>
+            {!email && <HomePage />}
+            {email &&
+                <div>
+                    {viewPage === 'admin-home' &&
+                        <AdminHome />
+                    }
+                    {viewPage === 'settings-page' &&
+                        <Settings />
+                    }
+                    {viewPage === 'add-post' &&
+                        <AddPost />
+                    }
+                </div>
+            }
             <Footer />
         </>
 
