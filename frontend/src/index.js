@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './lib/css/index.css';
 import App from './App';
-import ContextProvider from './lib/Context.js';
+import ContextProvider from './lib/Context.jsx';
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
