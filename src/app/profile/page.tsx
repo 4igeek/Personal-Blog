@@ -12,7 +12,6 @@ const Profile = () => {
     useEffect(() => {
         const getUserData = async () => {
             const response: any = await axios.get('/api/users/me');
-            console.log(response);
             setUserID(response.data.data._id);
         }
         getUserData();
